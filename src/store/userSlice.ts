@@ -3,10 +3,12 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface UserState {
   name: string
+  bounce: boolean
 }
 
 const initialState: UserState = {
   name: '',
+  bounce: false
 }
 
 export const userSlice = createSlice({
@@ -19,11 +21,14 @@ export const userSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       state.name = action.payload
-    }
+    },
+    startBouncing: (state) => { state.bounce = true },
+    stopBouncing: (state) => { state.bounce = false }
   },
 })
 
 // Action creators are generated for each case reducer function
 export const { setName } = userSlice.actions
+export const actionsUser = userSlice.actions
 
 export default userSlice.reducer

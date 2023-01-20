@@ -1,4 +1,6 @@
 import { Skull, Eye, Coins, Swords } from "lucide-react"
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 export const StashedCard = () => {
     return (
@@ -10,8 +12,9 @@ export const StashedCard = () => {
 }
 
 export const DoorJacket = () => {
+    const bouncing = useSelector((store: RootState) => store.user.bounce);
     return (
-        <section className='w-20 flex-grow flex-shrink-0  shadow-md bg-cyan-500 h-32 flex gap-2 flex-col items-center justify-center rounded-md p-2'>
+        <section className={`w-20 flex-grow flex-shrink-0 ${bouncing && 'animate-bounce'} shadow-md bg-cyan-500 h-32 flex gap-2 flex-col items-center justify-center rounded-md p-2`}>
             <Skull size={28} color={'#3F3F3F'} />
             <Eye size={28} color={'#3F3F3F'} />
         </section>

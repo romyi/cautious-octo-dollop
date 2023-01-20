@@ -1,9 +1,7 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'wouter';
-import { useWebSocket } from '../api'
 import { setName } from '../store/userSlice';
-import { ToolCard } from './components/ToolCard';
 
 export function Entrance({sender}: {sender: Function}) {
   const dispatch = useDispatch();
@@ -18,7 +16,6 @@ export function Entrance({sender}: {sender: Function}) {
     <>
       <input onChange={(e) => name.current = e.target.value}></input>
       <button disabled={name.current === ''} onClick={enter}>Play</button>
-      <ToolCard name='cool item' deck='treasures' figure='a' id='1' tier={10} description='coool item' />
     </>
   )
 }

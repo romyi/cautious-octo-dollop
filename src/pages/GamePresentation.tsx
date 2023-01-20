@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux"
+import { RootState, store } from "../store"
+import { setName } from "../store/userSlice"
 import { Card } from "../types/entities"
 import { HeroPlank } from "./components/HeroPlank"
 import { StashedCard, DoorJacket, LootJacket } from "./components/StashedCard"
@@ -14,6 +17,7 @@ const toolProps: Card = {
 }
 
 export const GamePresentation = () => {
+    const name = useSelector((store: RootState) => store.user.name);
     return (
         <div className="w-screen max-h-screen flex flex-col-reverse p-2 gap-4 align-center">
             <div className="flex justify-between w-1/4 m-auto">
@@ -28,10 +32,15 @@ export const GamePresentation = () => {
                     <HeroPlank />
                     <HeroPlank />
                     <HeroPlank />
+                    <p>{name}</p>
                 </div>
                 <main className='m-auto w-6/12 h-screen flex flex-col-reverse items-center gap-20 p-2'>
                     <section>
-                        <div className="w-8/12 flex justify-center gap-1 m-auto">
+                        <div
+                        onClick={() => {
+                            store.dispatch(setName('au'));
+                        }}
+                        className="w-8/12 flex justify-center gap-1 m-auto">
                             <ToolCard {...toolProps} active={false} />
                             <ToolCard {...toolProps} />
                             <ToolCard {...toolProps} active={false} />
@@ -40,7 +49,7 @@ export const GamePresentation = () => {
                             <ToolCard {...toolProps} />
                         </div>
                     </section>
-                    <aside><p className='font-light text-xs'>Pick a card from the doors deck</p></aside>
+                    <aside><p className={`font-light text-xs`}>Pick a card from the doors deck</p></aside>
                     <div>
                         <div className="w-8/12 flex justify-center gap-1 m-auto">
                             <LootJacket />
