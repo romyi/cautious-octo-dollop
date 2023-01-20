@@ -16,10 +16,10 @@ export const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    {/* <QueryClientProvider client={queryClient}> */}
       <Provider store={store}>
         <App />
       </Provider>
-    </QueryClientProvider>
+    {/* </QueryClientProvider> */}
   </React.StrictMode>,
 )
