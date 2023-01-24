@@ -49,7 +49,7 @@ export const GamePresentation = () => {
                             <ToolCard {...toolProps} />
                         </div>
                     </section>
-                    <aside><p className={`font-light text-xs`}>Pick a card from the doors deck</p></aside>
+                    <aside><p className={`font-light text-xs`}>Pick 4 cards from decks</p></aside>
                     <div>
                         <div className="w-8/12 flex justify-center gap-1 m-auto">
                             <LootJacket />

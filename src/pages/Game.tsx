@@ -12,9 +12,13 @@ export const Game = ({sender}: {sender: Function}) => {
     const name = useSelector((store: RootState) => store.user.name);
     const { data: userData } = useMe(name);
     const [,setLocation] = useLocation();
+    const gotodemo = () => {
+        sender({ type: 'join room' })
+        setLocation('/pres');
+    }
     return (
         <>
-            <div onClick={() => setLocation('/pres')} className='bg-slate-700 w-4 h-4' />
+            <div onClick={gotodemo} className='bg-slate-700 w-4 h-4' />
             <Meta sender={sender} />
             <PlayersInfo />
             <Decks />

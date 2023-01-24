@@ -3,12 +3,20 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface UserState {
   name: string
-  bounce: boolean
+  bounce: {
+    doors: boolean
+    tres: boolean
+    stash: boolean
+  }
 }
 
 const initialState: UserState = {
   name: '',
-  bounce: false
+  bounce: {
+    doors: false,
+    tres: false,
+    stash: false
+  }
 }
 
 export const userSlice = createSlice({
@@ -22,8 +30,10 @@ export const userSlice = createSlice({
       // immutable state based off those changes
       state.name = action.payload
     },
-    startBouncing: (state) => { state.bounce = true },
-    stopBouncing: (state) => { state.bounce = false }
+    inviteToDraft: (state) => { 
+      state.bounce.doors = true
+      state.bounce.tres = true
+    }
   },
 })
 

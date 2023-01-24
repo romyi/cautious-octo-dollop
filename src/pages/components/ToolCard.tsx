@@ -5,9 +5,9 @@ export const ToolCard = (props: Card) => {
     return (
         <section className={`w-20 ${!props.equiped ? 'shadow-sm' : 'border border-slate-300'} ${!props.active && 'opacity-50 shadow-none border-none'} flex-grow flex-shrink-0 bg-slate-50 h-32 flex flex-col items-center justify-between rounded-md p-2`}>
             <aside className="flex flex-row w-full justify-around">
-                <p className='text-slate-400 text-sm font-semibold'>2+</p>
-                <p className='text-slate-400 text-sm font-semibold'>?</p>
-                <p className='text-slate-400 text-sm font-semibold'>7</p>
+                <p className='text-slate-700 text-sm font-semibold'>2+</p>
+                <p className='text-slate-700 text-sm font-semibold'>?</p>
+                <p className='text-slate-700 text-sm font-semibold'>7</p>
             </aside>
             <Swords size={32} color="#005550" />
             <p className='text-slate-800 text-xs text-center'>{props.description}</p>

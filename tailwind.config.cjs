@@ -9,7 +9,7 @@ module.exports = {
             transform: "translateY(-5%)",
             "animation-timing-function": "cubic-bezier(0.8,0,1,1)",
           },
-        },
+        }
       },
     },
   },
