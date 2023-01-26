@@ -8,6 +8,10 @@ export interface UserState {
     tres: boolean
     stash: boolean
   }
+  highlight: {
+    skirmish: boolean
+    players: boolean
+  }
 }
 
 const initialState: UserState = {
@@ -16,6 +20,10 @@ const initialState: UserState = {
     doors: false,
     tres: false,
     stash: false
+  },
+  highlight: {
+    skirmish: false,
+    players: false
   }
 }
 
@@ -33,6 +41,9 @@ export const userSlice = createSlice({
     inviteToDraft: (state) => { 
       state.bounce.doors = true
       state.bounce.tres = true
+    },
+    highlight: (state) => {
+      state.highlight.skirmish = true
     }
   },
 })

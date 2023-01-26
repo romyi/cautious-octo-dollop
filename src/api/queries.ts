@@ -28,7 +28,10 @@ const fetchDecks = (): Promise<{treas: number, doors: number, stash: number}> =>
 
 export const useDecks = () => useQuery(['decks'], fetchDecks)
 
-export const useHand = (id: string) => useQuery(['hand', id], fetchHand, {enabled: id !== ''});
+export const useHand = (id: string) => {
+    console.log(id)
+    return useQuery(['hand', id], fetchHand, {enabled: !!id});
+}
 
 const fetchMe = ({ queryKey }: { queryKey: QueryKey }): Promise<{id: string}> => {
     const [, name] = queryKey

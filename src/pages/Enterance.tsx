@@ -9,8 +9,8 @@ export function Entrance({sender}: {sender: Function}) {
   const [, setLocation] = useLocation()
   const enter = () => {
     dispatch(setName(name.current as string));
-    sender({ type: 'connect', name: name.current as string })
-    setLocation("/game")
+    sender({ type: 'join room', name: name.current as string })
+    setLocation("/pres")
   }
   return (
     <>

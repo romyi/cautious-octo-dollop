@@ -16,13 +16,15 @@ ws.onmessage = (event) => {
       //@ts-ignore
       store.dispatch(actionsUser[script]());
       //@ts-ignore
-      console.log(actionsUser[script]);
+      // console.log(actionsUser[script]);
     }
-    if (typeof queryKey === 'string') {
-      queryClient.invalidateQueries([queryKey])  
-    } else {
-      for (let key of queryKey) {
-        queryClient.invalidateQueries(key);
+    if (queryKey) {
+      if (typeof queryKey === 'string') {
+        queryClient.invalidateQueries([queryKey])  
+      } else {
+        for (let key of queryKey) {
+          queryClient.invalidateQueries(key);
+        }
       }
     }
 }
@@ -33,7 +35,7 @@ function App() {
     <div>
       <Route path='/'><Entrance sender={(event: any) => ws.send(JSON.stringify(event))} /></Route>
       <Route path='/game'><Game sender={(event: any) => ws.send(JSON.stringify(event))} /></Route>
-      <Route path="/pres"><GamePresentation /></Route>
+      <Route path="/pres"><GamePresentation sender={(event: any) => ws.send(JSON.stringify(event))} /></Route>
     </div>
   )
 }

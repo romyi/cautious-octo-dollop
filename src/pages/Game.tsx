@@ -9,8 +9,8 @@ import { PlayersInfo } from "./templates/PlayersInfo";
 import { useLocation } from 'wouter';
 
 export const Game = ({sender}: {sender: Function}) => {
-    const name = useSelector((store: RootState) => store.user.name);
-    const { data: userData } = useMe(name);
+    // const name = useSelector((store: RootState) => store.user.name);
+    // const { data: userData } = useMe(name);
     const [,setLocation] = useLocation();
     const gotodemo = () => {
         sender({ type: 'join room' })
@@ -22,7 +22,7 @@ export const Game = ({sender}: {sender: Function}) => {
             <Meta sender={sender} />
             <PlayersInfo />
             <Decks />
-            <Hand userData={userData} />
+            {/* <Hand userData={userData} /> */}
         </>
     )
 }
